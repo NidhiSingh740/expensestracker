@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Wallet, Menu, X, Sparkles } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Features');
+
+
+ const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +18,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
 
   const navLinks = [
     { name: 'Features', href: '#features' },
@@ -70,19 +75,21 @@ const Navbar = () => {
         </div>
 
         {/* RIGHT: CTA BUTTON */}
-        <div className="hidden md:flex justify-end min-w-[150px]">
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative px-5 py-2 rounded-full bg-white text-black font-bold text-xs overflow-hidden"
-          >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            <span className="relative group-hover:text-white flex items-center gap-2">
-              GET STARTED <Sparkles className="w-3.5 h-3.5" />
-            </span>
-          </motion.button>
-        </div>
+       <div className="hidden md:flex justify-end min-w-[150px]">
+  <motion.button 
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    onClick={() => navigate("/login")}
+    className="group relative px-5 py-2 rounded-full bg-white text-black font-bold text-xs overflow-hidden"
+  >
+    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
 
+    <span className="relative group-hover:text-white flex items-center gap-2">
+      GET STARTED
+      <Sparkles className="w-3.5 h-3.5" />
+    </span>
+  </motion.button>
+</div>
         {/* MOBILE MENU BUTTON */}
         <button className="md:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
