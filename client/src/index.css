@@ -1,0 +1,32 @@
+/* ============================================================
+   PUT THESE 3 LINES AT THE VERY TOP OF YOUR:
+   - src/index.css        (CRA or Vite)
+   - styles/globals.css   (Next.js)
+   ============================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ──────────────────────────────────────────────
+   Your other global styles go BELOW this line
+   ────────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050505;
+  color: white;
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
