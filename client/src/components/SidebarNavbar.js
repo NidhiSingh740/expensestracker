@@ -18,12 +18,10 @@ import {
 const SidebarNavbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  
-  // Layout states
+ 
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false); // Controls dialog overlay
 
-  // Read current logged-in user details from local browser storage
   const user = JSON.parse(localStorage.getItem('user')) || { name: 'User', email: 'user@domain.com' };
 
   const menuItems = [
@@ -35,7 +33,6 @@ const SidebarNavbar = () => {
     { name: 'Profile', icon: <UserCircle size={20} />, path: '/profile' },
   ];
 
-  // Actual Logout Execution Logic
   const executeLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -45,7 +42,7 @@ const SidebarNavbar = () => {
 
   return (
     <>
-      {/* ================= SIDEBAR COMPONENT ================= */}
+     
       <motion.div 
         animate={{ width: isCollapsed ? '80px' : '260px' }}
         transition={{ duration: 0.4, type: 'spring', stiffness: 200, damping: 25 }}
@@ -116,7 +113,7 @@ const SidebarNavbar = () => {
           </nav>
         </div>
 
-        {/* Footer User Block & Dialog Opener */}
+     
         <div className="space-y-4 border-t border-white/5 pt-4">
           {!isCollapsed && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-3 px-2 bg-white/[0.02] border border-white/5 p-2.5 rounded-xl">
@@ -130,7 +127,6 @@ const SidebarNavbar = () => {
             </motion.div>
           )}
 
-          {/* Trigger Open Modal Button */}
           <button
             onClick={() => setIsLogoutModalOpen(true)}
             className="w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-sm font-medium text-rose-400/80 hover:text-rose-400 hover:bg-rose-500/5 border border-transparent hover:border-rose-500/10 transition-all duration-200"
@@ -145,12 +141,10 @@ const SidebarNavbar = () => {
         </div>
       </motion.div>
 
-      {/* ================= SECTION 4: CONFIRMATION DIALOG BOX ================= */}
       <AnimatePresence>
         {isLogoutModalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             
-            {/* Blurry dim backdrop overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -159,7 +153,6 @@ const SidebarNavbar = () => {
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
 
-            {/* The Modal Interface Window Container */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -169,7 +162,6 @@ const SidebarNavbar = () => {
             >
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-rose-500/30 to-transparent" />
               
-              {/* Warning Warning Icon Shield */}
               <div className="mx-auto bg-rose-500/10 border border-rose-500/20 w-12 h-12 rounded-xl flex items-center justify-center text-rose-400 mb-4">
                 <AlertTriangle size={22} />
               </div>
@@ -179,9 +171,8 @@ const SidebarNavbar = () => {
                 Are you sure you want to log out? You will need to sign back in to access your AI tracking models.
               </p>
 
-              {/* Grid Actions Layout Split */}
               <div className="grid grid-cols-2 gap-3">
-                {/* LEFT BUTTON: CANCEL */}
+              
                 <button
                   onClick={() => setIsLogoutModalOpen(false)}
                   className="w-full bg-white/5 border border-white/5 hover:border-white/10 text-gray-300 font-semibold py-3 rounded-xl text-xs tracking-wider uppercase transition-all active:scale-[0.98]"
@@ -189,7 +180,6 @@ const SidebarNavbar = () => {
                   Cancel
                 </button>
 
-                {/* RIGHT BUTTON: LOGOUT ACTION */}
                 <button
                   onClick={executeLogout}
                   className="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold py-3 rounded-xl text-xs tracking-wider uppercase shadow-lg shadow-rose-600/10 transition-all active:scale-[0.98]"
