@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
@@ -10,7 +9,7 @@ const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, 'Email field is required.'],
-    unique: true, // Prevents duplicate email accounts from registering
+    unique: true,
     lowercase: true,
     trim: true
   },
@@ -21,8 +20,12 @@ const UserSchema = new mongoose.Schema({
   },
   total_balance: {
     type: Number,
-    default: 0 // Base structural seed balance tracked logically
+    default: 0
+  },
+  monthly_cap: {
+    type: Number,
+    default: 20000 // Standard fallback default monthly ceiling cap
   }
-}, { timestamps: true }); // Automatically maintains createdAt and updatedAt records
+}, { timestamps: true });
 
 module.exports = mongoose.model('User', UserSchema);
