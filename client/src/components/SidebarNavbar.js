@@ -29,7 +29,9 @@ const SidebarNavbar = () => {
     { name: 'Charts', icon: <BarChart3 size={20} />, path: '/charts' },
     { name: 'Analytics', icon: <TrendingUp size={20} />, path: '/analytics' },
     { name: 'Budget System', icon: <WalletCards size={20} />, path: '/budget' },
-    { name: 'AI Insights', icon: <BrainCircuit size={20} />, path: '/ai-insights' },
+    { name: 'Expenses', icon: <BrainCircuit size={20} />, path: '/expenses' },
+    { name: 'Saving Goals', icon: <BrainCircuit size={20} />, path: '/saving-goals' },
+
     { name: 'Profile', icon: <UserCircle size={20} />, path: '/profile' },
   ];
 

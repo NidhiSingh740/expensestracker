@@ -16,12 +16,14 @@ import Login from "./pages/Login";
 
 import SidebarNavbar from './components/SidebarNavbar';
 import Dashboard from './components/Dashboard';
+import Charts from './components/Charts';
 
-const DashboardPage = () => <div className="text-2xl font-bold text-white font-sans">Dashboard Workspace View</div>;
-const ChartsPage = () => <div className="text-2xl font-bold text-white font-sans">Interactive Chart Coordinates</div>;
+
 const AnalyticsPage = () => <div className="text-2xl font-bold text-white font-sans">Deep Financial Analytics Engine</div>;
 const BudgetPage = () => <div className="text-2xl font-bold text-white font-sans">Bento Budget Allocation System</div>;
-const AIInsightsPage = () => <div className="text-2xl font-bold text-white font-sans">Gemini AI Cognitive Insights</div>;
+const ExpensesPage = () => <div className="text-2xl font-bold text-white font-sans">Gemini AI Cognitive Insights</div>;
+const SavingGoalsPage = () => <div className="text-2xl font-bold text-white font-sans">Gemini AI Cognitive Insights</div>;
+
 const ProfilePage = () => <div className="text-2xl font-bold text-white font-sans">User Account Settings & Configuration</div>;
 
 // Public Landing Page Layout Shell
@@ -68,10 +70,12 @@ function App() {
       <Route path="/login" element={<Login />} />
 
       <Route path="/dashboard" element={<ProtectedLayout><Dashboard /></ProtectedLayout>} />
-      <Route path="/charts" element={<ProtectedLayout><ChartsPage /></ProtectedLayout>} />
+      <Route path="/charts" element={<ProtectedLayout><Charts /></ProtectedLayout>} />
       <Route path="/analytics" element={<ProtectedLayout><AnalyticsPage /></ProtectedLayout>} />
       <Route path="/budget" element={<ProtectedLayout><BudgetPage /></ProtectedLayout>} />
-      <Route path="/ai-insights" element={<ProtectedLayout><AIInsightsPage /></ProtectedLayout>} />
+      <Route path="/expenses" element={<ProtectedLayout><ExpensesPage /></ProtectedLayout>} />
+      <Route path="/saving-goals" element={<ProtectedLayout><SavingGoalsPage /></ProtectedLayout>} />
+
       <Route path="/profile" element={<ProtectedLayout><ProfilePage /></ProtectedLayout>} />
 
       <Route path="*" element={<Navigate to="/" replace />} />
