@@ -21,6 +21,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/dashboard', require('./routes/dashboard'));
 app.use('/api/charts', require('./routes/charts'));
 app.use('/api/analytics', require('./routes/analytics'));
+app.use('/api/budgets', require('./routes/budgets'));
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
