@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const Testimonials = () => {
-  // Active card index tracking for a unique prominent glow effect when tapped/clicked
+ 
   const [activeCard, setActiveCard] = useState(null);
 
   const reviews = [
@@ -59,7 +59,7 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Fully Responsive CSS Grid Grid */}
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
           {reviews.map((user) => (
             <motion.div 
@@ -73,7 +73,7 @@ const Testimonials = () => {
                   : 'border-white/10 hover:border-purple-500/40'
               }`}
             >
-              {/* Subtle top horizontal highlight glow line */}
+              
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
               
               <div className="flex items-center gap-3 mb-4">
@@ -84,7 +84,7 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              {/* Rating stars */}
+             
               <div className="flex items-center gap-0.5 text-amber-400 mb-3">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
               </div>

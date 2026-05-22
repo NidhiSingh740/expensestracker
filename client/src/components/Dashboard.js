@@ -13,18 +13,17 @@ const Dashboard = () => {
   const [greeting, setGreeting] = useState('Good Evening');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
-  // Form Fields for settings
+
   const [inputBalance, setInputBalance] = useState('');
   const [inputCap, setInputCap] = useState('');
 
-  // Main Reactive Synchronized Parameters
   const [balance, setBalance] = useState(0);
   const [monthlyCap, setMonthlyCap] = useState(0);
   const [totalSpent, setTotalSpent] = useState(0);
   const [graphData, setGraphData] = useState([]);
   const [activities, setActivities] = useState([]);
   
-  // RE-ENGINEERED: Includes explicit tracking fields for the "Others" bucket nodes
+
   const [categories, setCategories] = useState([
     { name: 'Food & Drinks', spent: 0, max: 0, color: '#a855f7', glow: 'rgba(168,85,247,0.03)' },
     { name: 'Entertainment', spent: 0, max: 0, color: '#ec4899', glow: 'rgba(236,72,153,0.03)' },
@@ -33,7 +32,7 @@ const Dashboard = () => {
     { name: 'Others', spent: 0, max: 0, color: '#10b981', glow: 'rgba(16,185,129,0.03)' },
   ]);
 
-  // Automated Helper to format timestamps into real relative expressions
+
   const formatRelativeTime = (timestamp) => {
     const now = new Date();
     const txDate = new Date(timestamp);
@@ -45,7 +44,7 @@ const Dashboard = () => {
     if (diffMins < 60) return `${diffMins}m ago`;
     if (diffHours < 24) return `${diffHours}h ago`;
     
-    // Fallback standard default expression
+   
     return txDate.toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
   };
 
@@ -62,7 +61,6 @@ const Dashboard = () => {
         setGraphData(data.graphData);
         setActivities(data.recentActivities);
         
-        // Dynamically compute budget caps (Food 25%, Shopping 35%, Travel 20%, Entertainment 10%, Others 10%)
         setCategories(prev => prev.map(cat => {
           let proportion = 0.10;
           if (cat.name === 'Food & Drinks') proportion = 0.25;
@@ -166,7 +164,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-[#030303] text-white p-4 lg:p-6 font-sans flex flex-col gap-6 relative select-none">
       
-      {/* ================= COCKPIT HEADER CONTROLS ================= */}
+     
       <div className="w-full bg-[#09090b]/40 backdrop-blur-xl border border-white/5 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
         <div className="flex items-center gap-4">
           <div className="bg-gradient-to-br from-purple-600/20 to-pink-500/20 p-2.5 rounded-xl border border-purple-500/30">
@@ -193,10 +191,10 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* ================= THE ASYMMETRIC 3-COLUMN MASTER GRID ================= */}
+     
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start w-full">
         
-        {/* PANEL 1: LEFT HAND HISTORY STREAM */}
+        
         <div className="lg:col-span-3 bg-[#09090b]/20 border border-white/5 rounded-2xl p-5 shadow-2xl h-[584px] flex flex-col overflow-hidden">
           <div className="flex items-center justify-between pb-4 border-b border-white/5 mb-4 shrink-0">
             <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase">Live Database Ledger</span>
@@ -230,7 +228,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* PANEL 2: CENTER VIEW AI COMMANDS INPUT & CHART */}
+        
         <div className="lg:col-span-6 flex flex-col gap-6">
           <form onSubmit={handleAIFormSubmit} className="relative group w-full">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-20 group-focus-within:opacity-100 transition duration-300" />
@@ -258,7 +256,7 @@ const Dashboard = () => {
             
             <div className="w-full h-80 mt-auto">
               <ResponsiveContainer width="100%" height="100%">
-                {/* FIXED: Bottom margin adjusted to 15 to completely prevent label clipping truncations */}
+               
                 <AreaChart data={graphData} margin={{ top: 10, right: 5, left: -25, bottom: 15 }}>
                   <defs>
                     <linearGradient id="spendWave" x1="0" y1="0" x2="0" y2="1">
@@ -278,7 +276,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* PANEL 3: RIGHT SIDE COMPREHENSIVE BENTO CAPACITY GAUGES */}
         <div className="lg:col-span-3 flex flex-col gap-3.5 w-full">
           {categories.map((cat) => {
             const ratio = cat.max > 0 ? Math.min((cat.spent / cat.max) * 100, 100) : 0;
@@ -314,7 +311,6 @@ const Dashboard = () => {
 
       </div>
 
-      {/* ================= POPUP INITIALIZATION ACCOUNT PARAMETERS SETTINGS MODAL ================= */}
       <AnimatePresence>
         {isSettingsOpen && (
           <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">

@@ -41,13 +41,12 @@ const AnalyticsPage = () => {
     );
   }
 
-  // Find the single highest expenditure value in the current list to normalize relative bar scales
   const maxSpentVal = distribution.length > 0 ? Math.max(...distribution.map(d => d.spent), 0) : 0;
 
   return (
     <div className="min-h-screen bg-[#020203] text-white p-4 lg:p-6 font-sans flex flex-col gap-6 select-none">
       
-      {/* COCKPIT EXECUTIVE TOP BAR */}
+
       <div className="w-full bg-[#070709]/60 border border-white/5 rounded-2xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
         <div className="flex items-center gap-3.5">
           <div className="bg-pink-500/10 p-2 rounded-xl border border-pink-500/20 text-pink-400">
@@ -60,7 +59,7 @@ const AnalyticsPage = () => {
         </div>
       </div>
 
-      {/* ASYMMETRIC STATE METRIC NODES */}
+    
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
         {[
           { label: 'Cumulative Volume', val: `₹${cards.totalSpent.toLocaleString('en-IN')}` },
@@ -75,7 +74,7 @@ const AnalyticsPage = () => {
         ))}
       </div>
 
-      {/* CORE LAYERED CASH FLOW MATRIX GRAPH */}
+
       <div className="w-full bg-[#08080a] border border-white/5 rounded-2xl p-5 shadow-2xl h-[340px] flex flex-col justify-between">
         <span className="text-xs font-mono font-bold uppercase tracking-widest text-gray-400">Cash Flow Projection Vectors</span>
         <div className="w-full h-64 mt-4">
@@ -93,15 +92,14 @@ const AnalyticsPage = () => {
         </div>
       </div>
 
-      {/* SPLIT INTEL GRID BLOCKS */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch w-full">
         
-        {/* ASYMMETRIC ADJUSTED TRACK RAILS CONTAINER */}
+    
         <div className="lg:col-span-6 bg-[#08080a] border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col gap-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-gray-400">Asymmetric Asset Rails</span>
           <div className="space-y-4 flex-grow flex flex-col justify-around">
             {distribution.map((d) => {
-              // OPTIMIZATION: Ratios now calculate dynamically relative to the absolute highest spend item
+         
               const trackRatio = maxSpentVal > 0 ? (d.spent / maxSpentVal) * 100 : 0;
               return (
                 <div key={d.name} className="space-y-1 w-full">
@@ -123,7 +121,6 @@ const AnalyticsPage = () => {
           </div>
         </div>
 
-        {/* AI GEN INSIGHTS LEDGER */}
         <div className="lg:col-span-6 bg-[#08080a] border border-white/5 rounded-2xl p-5 shadow-2xl flex flex-col gap-4">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-gray-400">Gemini Optimization Clusters</span>
           <div className="space-y-3 flex-grow flex flex-col justify-center">

@@ -52,7 +52,7 @@ const SidebarNavbar = () => {
       >
         <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-gradient-to-b from-purple-500/10 via-pink-500/10 to-transparent" />
 
-        {/* Brand Header */}
+     
         <div>
           <div className={`flex items-center justify-between mb-8 px-2 ${isCollapsed ? 'justify-center' : ''}`}>
             {!isCollapsed && (
@@ -80,7 +80,7 @@ const SidebarNavbar = () => {
             </button>
           </div>
 
-          {/* Navigation Links Mapping */}
+         
           <nav className="space-y-1.5">
             {menuItems.map((item) => {
               const isActive = location.pathname === item.path;
@@ -151,7 +151,7 @@ const SidebarNavbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setIsLogoutModalOpen(false)} // Closes dialog safely if clicking outside
+              onClick={() => setIsLogoutModalOpen(false)} 
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
 

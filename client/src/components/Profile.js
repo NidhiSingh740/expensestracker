@@ -9,7 +9,6 @@ const ProfilePage = () => {
   const [profile, setProfile] = useState({ name: '', email: '', total_balance: 0, monthly_cap: 20000, base_currency: 'INR' });
   const [diagnostics, setDiagnostics] = useState({ totalTxCount: 0, totalGoalsCount: 0, financialTier: 'Standard Node', tierColor: '#3b82f6' });
   
-  // State Input Modifications matrices
   const [editName, setEditName] = useState('');
   const [editCap, setEditCap] = useState('');
   const [editCurrency, setEditCurrency] = useState('INR');
@@ -90,42 +89,42 @@ const ProfilePage = () => {
   return (
     <div className="min-h-screen bg-[#020203] text-white p-4 lg:p-6 font-sans flex flex-col gap-6 select-none">
       
-      {/* HEADER CONTROLS VIEW TITLE */}
+      
       <div className="border-b border-white/5 pb-4">
         <h1 className="text-2xl font-black tracking-tight text-white">System Configuration</h1>
         <p className="text-xs text-gray-500 font-medium mt-0.5">Manage identity keys, global limits, and database state architectures.</p>
       </div>
 
-      {/* TWO-COLUMN EXECUTIVE MANAGEMENT GRID */}
+    
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch w-full">
         
-        {/* LEFT COLUMN: PARAMETER RE-WRITER FORM (Spans 7 Columns) */}
+        
         <form onSubmit={handleUpdateProfile} className="lg:col-span-7 bg-[#08080a] border border-white/5 rounded-2xl p-6 shadow-2xl flex flex-col justify-between min-h-[460px]">
           <div className="space-y-5">
             <span className="text-xs font-mono font-bold text-gray-400 uppercase tracking-widest block border-b border-white/5 pb-2 flex items-center gap-2">
               <Settings size={14} className="text-purple-400" /> Identity Variables & Parameters
             </span>
 
-            {/* Field A: Name */}
+            
             <div className="space-y-1.5">
               <label className="text-[10px] uppercase font-mono tracking-widest text-gray-500">Account Username</label>
               <input type="text" required value={editName} onChange={(e) => setEditName(e.target.value)} className="w-full bg-black border border-white/10 rounded-xl p-3 text-sm font-medium focus:outline-none focus:border-purple-500 text-gray-200" />
             </div>
 
-            {/* Field B: Email (Locked Identity Key) */}
+            
             <div className="space-y-1.5">
               <label className="text-[10px] uppercase font-mono tracking-widest text-gray-600">Identity Email Key (Read-Only)</label>
               <div className="w-full bg-black/40 border border-white/5 rounded-xl p-3 text-sm text-gray-500 cursor-not-allowed select-text font-mono">{profile.email}</div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Field C: Monthly Ceiling Limit */}
+             
               <div className="space-y-1.5">
                 <label className="text-[10px] uppercase font-mono tracking-widest text-gray-500">Global Monthly Ceiling Cap (INR)</label>
                 <input type="number" required value={editCap} onChange={(e) => setEditCap(e.target.value)} className="w-full bg-black border border-white/10 rounded-xl p-3 text-sm font-mono focus:outline-none focus:border-purple-500 text-white" />
               </div>
 
-              {/* Field D: System Base Currency */}
+             
               <div className="space-y-1.5">
                 <label className="text-[10px] uppercase font-mono tracking-widest text-gray-500">Core Engine Base Currency</label>
                 <select value={editCurrency} onChange={(e) => setEditCurrency(e.target.value)} className="w-full bg-black border border-white/10 rounded-xl p-3 text-sm focus:outline-none focus:border-purple-500 text-gray-300">
@@ -142,10 +141,10 @@ const ProfilePage = () => {
           </button>
         </form>
 
-        {/* RIGHT COLUMN: RE-ACTIONARY METRICS AND DATA PURGING WINDOW (Spans 5 Columns) */}
+       
         <div className="lg:col-span-5 flex flex-col gap-6 items-stretch">
           
-          {/* TOP INNER CARD: DIAGNOSTIC TELEMETRY CLUSTER */}
+          
           <div className="bg-[#08080a] border border-white/5 rounded-2xl p-6 shadow-2xl flex flex-col justify-between flex-grow relative overflow-hidden">
             <div className="absolute top-0 right-0 w-24 h-24 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: `${diagnostics.tierColor}10` }} />
             
@@ -180,7 +179,7 @@ const ProfilePage = () => {
             </div>
           </div>
 
-          {/* BOTTOM INNER CARD: THE CRITICAL DANGER MATRIX AREA */}
+          
           <div className="bg-rose-950/[0.02] border border-rose-500/10 rounded-2xl p-5 shadow-2xl flex flex-col gap-3">
             <div>
               <h4 className="text-xs font-black tracking-wider font-mono text-rose-400 uppercase flex items-center gap-1.5">

@@ -12,7 +12,7 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Secure API Async Submission Handler
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -25,10 +25,10 @@ const Signup = () => {
       const data = await response.json();
       
       if (data.success) {
-        alert(data.message); // Account created successfully!
-        navigate('/login');   // Automatically redirects to login screen context
+        alert(data.message); 
+        navigate('/login');   
       } else {
-        alert(data.message); // Displays structural validation faults like duplicate email
+        alert(data.message); 
       }
     } catch (error) {
       console.error("Connection Error:", error);
@@ -39,11 +39,11 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 relative overflow-hidden">
       
-      {/* Immersive Background Ambient Blurs */}
+     
       <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-pink-600/10 rounded-full blur-[120px] pointer-events-none" />
       
-      {/* Decorative Grid Mesh */}
+ 
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-10 pointer-events-none" />
 
       <motion.div 
@@ -52,10 +52,10 @@ const Signup = () => {
         transition={{ duration: 0.5, type: 'spring' }}
         className="w-full max-w-md bg-[#09090b]/40 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-[0_30px_100px_rgba(0,0,0,0.8)] relative group z-10"
       >
-        {/* Top subtle glow line strip */}
+        
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500/40 to-transparent" />
 
-        {/* Brand Logo Header Block */}
+       
         <div className="flex flex-col items-center gap-2 mb-8 text-center">
           <div className="bg-gradient-to-br from-purple-600 to-pink-500 p-2.5 rounded-xl border border-purple-400/20 shadow-lg">
             <Wallet className="text-white w-6 h-6" />
@@ -68,10 +68,10 @@ const Signup = () => {
           </p>
         </div>
 
-        {/* Signup Form */}
+       
         <form onSubmit={handleSubmit} className="space-y-5">
           
-          {/* Input 1: Full Name */}
+         
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Full Name</label>
             <div className="relative group/input">
@@ -88,7 +88,7 @@ const Signup = () => {
             </div>
           </div>
 
-          {/* Input 2: Email Address */}
+         
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Email Address</label>
             <div className="relative group/input">
@@ -105,7 +105,7 @@ const Signup = () => {
             </div>
           </div>
 
-          {/* Input 3: Password */}
+        
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Password</label>
             <div className="relative group/input">
@@ -129,7 +129,7 @@ const Signup = () => {
             </div>
           </div>
 
-          {/* Submit Button */}
+          
           <motion.button 
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -141,7 +141,7 @@ const Signup = () => {
           </motion.button>
         </form>
 
-        {/* Redirect Footer Route links */}
+       
         <p className="text-center text-xs text-gray-500 mt-6 font-medium">
           Already have an account?{' '}
           <Link to="/login" className="text-purple-400 hover:text-purple-300 underline underline-offset-4 font-bold transition-colors">

@@ -74,7 +74,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* RIGHT: CTA BUTTON */}
+        
        <div className="hidden md:flex justify-end min-w-[150px]">
   <motion.button 
     whileHover={{ scale: 1.05 }}
@@ -90,13 +90,13 @@ const Navbar = () => {
     </span>
   </motion.button>
 </div>
-        {/* MOBILE MENU BUTTON */}
+       
         <button className="md:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </motion.nav>
 
-      {/* MOBILE DROPDOWN (Simplified) */}
+    
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div

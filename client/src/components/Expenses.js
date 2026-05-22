@@ -8,7 +8,7 @@ const ExpensesPage = () => {
   const [loading, setLoading] = useState(true);
   const [records, setRecords] = useState([]);
   
-  // Filtering and Pagination State Matrices
+ 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [category, setCategory] = useState('All');
@@ -19,7 +19,7 @@ const ExpensesPage = () => {
  const fetchLedgerData = async () => {
     setLoading(true);
     try {
-      // FIXED: Added encodeURIComponent to prevent string fragmentation bugs across network boundaries
+     
       const safeCategory = encodeURIComponent(category);
       const safeType = encodeURIComponent(type);
       const safeSortBy = encodeURIComponent(sortBy);
@@ -41,7 +41,7 @@ const ExpensesPage = () => {
     }
   };
 
-  // Automatically fetch records whenever pagination indices or filters change
+
   useEffect(() => {
     fetchLedgerData();
   }, [currentPage, category, type, sortBy]);
@@ -57,7 +57,7 @@ const ExpensesPage = () => {
       });
       const data = await response.json();
       if (data.success) {
-        // If the current page is empty after deletion, move back a page safely
+       
         if (records.length === 1 && currentPage > 1) {
           setCurrentPage(prev => prev - 1);
         } else {
@@ -73,17 +73,16 @@ const ExpensesPage = () => {
 
   return (
     <div className="min-h-screen bg-[#020203] text-white p-4 lg:p-6 font-sans flex flex-col gap-6 select-none">
-      
-      {/* ================= HEADER INTRO ================= */}
+   
       <div>
         <h1 className="text-2xl font-black tracking-tight text-white">Account Ledger</h1>
         <p className="text-xs text-gray-500 font-medium mt-0.5">Audit, filter, and manage your complete multi-platform financial history.</p>
       </div>
 
-      {/* ================= HIGH SPECIFICATION FILTER ROW CONTROLS ================= */}
+     
       <div className="bg-[#08080a] border border-white/5 p-4 rounded-2xl flex flex-wrap items-center justify-between gap-4 shadow-xl">
         <div className="flex flex-wrap items-center gap-3">
-          {/* Category Filter */}
+   
           <div className="flex items-center gap-2 bg-black/40 border border-white/10 px-3 py-1.5 rounded-xl text-xs text-gray-400">
             <Filter size={12} className="text-purple-400" />
             <select value={category} onChange={(e) => { setCategory(e.target.value); setCurrentPage(1); }} className="bg-transparent border-none outline-none text-gray-200 cursor-pointer">
@@ -104,7 +103,7 @@ const ExpensesPage = () => {
           </div>
         </div>
 
-        {/* Sorting Matrix Dropdown */}
+       
         <div className="flex items-center gap-2 bg-black/40 border border-white/10 px-3 py-1.5 rounded-xl text-xs text-gray-400">
           <ArrowUpDown size={12} className="text-blue-400" />
           <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="bg-transparent border-none outline-none text-gray-200 cursor-pointer">
@@ -116,7 +115,7 @@ const ExpensesPage = () => {
         </div>
       </div>
 
-      {/* ================= HIGH-DENSITY INTERACTIVE LEDGER MATRIX ================= */}
+   
       <div className="w-full bg-[#08080a] border border-white/5 rounded-2xl shadow-2xl overflow-hidden flex flex-col justify-between min-h-[460px]">
         <div className="overflow-x-auto w-full">
           <table className="w-full text-left border-collapse">
@@ -189,7 +188,7 @@ const ExpensesPage = () => {
           </table>
         </div>
 
-        {/* ================= PAGINATION FOOTER SYSTEM BAR ================= */}
+       
         <div className="p-4 border-t border-white/5 flex items-center justify-between bg-white/[0.005] mt-auto">
           <span className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">
             Showing page {currentPage} of {totalPages}

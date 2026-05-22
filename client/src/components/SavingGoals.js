@@ -9,7 +9,7 @@ const SavingGoalsPage = () => {
   const [isAllocateOpen, setIsAllocateOpen] = useState(false);
   const [selectedGoal, setSelectedGoal] = useState(null);
 
-  // Form Fields Inputs
+  
   const [nameInput, setNameInput] = useState('');
   const [targetInput, setTargetInput] = useState('');
   const [dateInput, setDateInput] = useState('');
@@ -37,7 +37,7 @@ const SavingGoalsPage = () => {
     if (!nameInput || !targetInput || !dateInput) return;
     setSubmitting(true);
 
-    // FRONTEND SANITIZATION: Strip out any accidental blank spaces typed into the date box
+   
     const cleanDateString = dateInput.replace(/\s+/g, '');
 
     try {
@@ -211,7 +211,7 @@ const SavingGoalsPage = () => {
         )}
       </div>
 
-      {/* MODAL A: CREATION OVERLAY PANEL */}
+   
       <AnimatePresence>
         {isCreateOpen && (
           <div className="fixed inset-0 z-[300] flex items-center justify-center p-4">
@@ -240,7 +240,7 @@ const SavingGoalsPage = () => {
         )}
       </AnimatePresence>
 
-      {/* MODAL B: FUND CAPITAL ALLOCATION OVERLAY */}
+    
       <AnimatePresence>
         {isAllocateOpen && (
           <div className="fixed inset-0 z-[300] flex items-center justify-center p-4">

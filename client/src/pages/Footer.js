@@ -28,14 +28,14 @@ const Footer = () => {
       <div className="absolute bottom-0 left-0 w-[250px] md:w-[300px] h-[150px] bg-purple-600/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Top Link Grid Area */}
+        
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-white/5">
           
-          {/* Brand/Identity Column */}
+       
           <div className="col-span-2 flex flex-col gap-4">
             <div className="flex items-center gap-2 group cursor-pointer w-fit">
               <div className="bg-gradient-to-br from-purple-600 to-pink-500 p-1.5 rounded-lg border border-purple-400/20">
-                {/* SVG Wallet Icon */}
+               
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 1-1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1h15b"/><circle cx="16" cy="14" r="1"/></svg>
               </div>
               <span className="text-lg font-bold tracking-tighter text-white">
@@ -63,7 +63,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Categorized Link Blocks */}
+          
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className="flex flex-col gap-4 col-span-1">
               <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500">{title}</h4>
@@ -75,7 +75,7 @@ const Footer = () => {
                       className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors duration-200 inline-flex items-center gap-1 group"
                     >
                       {link.name}
-                      {/* SVG Arrow Up Right */}
+                      
                       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 transition-all duration-200 text-purple-400"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
                     </a>
                   </li>
@@ -86,14 +86,14 @@ const Footer = () => {
 
         </div>
 
-        {/* Legal Credits Bottom Area */}
+       
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-gray-500 font-mono text-center sm:text-left">
           <div>
             &copy; {currentYear} SpendSense.AI. All rights reserved.
           </div>
           <div className="flex items-center gap-1">
             Built with 
-            {/* SVG Pulsing Heart */}
+          
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="red" stroke="red" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse mx-0.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
             using the MERN Stack.
           </div>

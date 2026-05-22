@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { PieChart, Pie, Cell, ResponsiveContainer, Sector } from 'recharts';
 import { BarChart3, TrendingUp, DollarSign, Award, ShoppingBag, Loader2, AlertCircle } from 'lucide-react';
 
-// Specialized Sector Drawer framework rendering high-end active focus strokes
+
 const renderActiveShape = (props) => {
   const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
   return (
@@ -27,7 +27,7 @@ const ChartsPage = () => {
   const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   
-  // Core Analytical Metrics States
+
   const [metrics, setMetrics] = useState({ totalIncome: 0, totalExpense: 0, netSavingsMargin: 0, topCategory: 'None' });
   const [pieData, setPieData] = useState([]);
   const [topVendors, setTopVendors] = useState([]);
@@ -54,7 +54,7 @@ const ChartsPage = () => {
     fetchChartsAnalytics();
   }, []);
 
-  // Compute calculated lifetime percentage outputs safely
+  
   const totalLifetimeSpend = pieData.reduce((sum, item) => sum + item.value, 0);
 
   if (loading) {
@@ -69,15 +69,15 @@ const ChartsPage = () => {
   return (
     <div className="min-h-screen bg-[#030303] text-white p-4 lg:p-6 font-sans flex flex-col gap-6 select-none">
       
-      {/* ================= HEADER SUBTITLE SECTION ================= */}
+    
       <div className="flex flex-col gap-1">
         <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-500">Analytics Workspace</span>
         <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight">Macro Expense Distribution Matrix</h1>
       </div>
 
-      {/* ================= THREE-WAY EXECUTIVE KPI BLOCK ================= */}
+     
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-        {/* Card A: Net Margin */}
+       
         <div className="bg-[#09090b]/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 relative overflow-hidden shadow-lg">
           <div className="bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20 text-emerald-400"><TrendingUp size={18} /></div>
           <div>
@@ -88,7 +88,7 @@ const ChartsPage = () => {
           </div>
         </div>
 
-        {/* Card B: Lifetime Income Pool */}
+      
         <div className="bg-[#09090b]/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 relative overflow-hidden shadow-lg">
           <div className="bg-purple-500/10 p-2.5 rounded-xl border border-purple-500/20 text-purple-400"><DollarSign size={18} /></div>
           <div>
@@ -97,7 +97,7 @@ const ChartsPage = () => {
           </div>
         </div>
 
-        {/* Card C: Highest Volatility Target */}
+        
         <div className="bg-[#09090b]/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 relative overflow-hidden shadow-lg">
           <div className="bg-pink-500/10 p-2.5 rounded-xl border border-pink-500/20 text-pink-400"><Award size={18} /></div>
           <div>
@@ -107,10 +107,10 @@ const ChartsPage = () => {
         </div>
       </div>
 
-      {/* ================= PRIMARY MACRO GRAPH SPLIT WORKSPACE ================= */}
+      
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch w-full">
         
-        {/* LEFT COMPONENT: CORE DONUT SYSTEM (Spans 7 Columns) */}
+      
         <div className="lg:col-span-7 bg-[#09090b]/20 border border-white/5 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-center gap-8 shadow-2xl relative min-h-[380px]">
           <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
           
@@ -121,7 +121,7 @@ const ChartsPage = () => {
             </div>
           ) : (
             <>
-              {/* Doughnut Core Circle Layer */}
+             
               <div className="w-56 h-56 shrink-0 relative flex items-center justify-center">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -143,7 +143,7 @@ const ChartsPage = () => {
                   </PieChart>
                 </ResponsiveContainer>
                 
-                {/* Micro Content Text Inside Ring Core */}
+               
                 <div className="absolute flex flex-col items-center text-center max-w-[110px] overflow-hidden pointer-events-none">
                   <span className="text-[10px] font-mono font-bold text-gray-500 uppercase tracking-wider truncate w-full">
                     {pieData[activeIndex]?.name}
@@ -154,7 +154,7 @@ const ChartsPage = () => {
                 </div>
               </div>
 
-              {/* Dynamic Categorical Color Legend Ledger */}
+              
               <div className="flex-grow space-y-3.5 w-full">
                 <span className="text-[10px] font-mono font-bold text-gray-500 uppercase tracking-widest block pb-2 border-b border-white/5">Absolute Metrics</span>
                 <div className="space-y-2.5">
@@ -179,7 +179,7 @@ const ChartsPage = () => {
           )}
         </div>
 
-        {/* RIGHT COMPONENT: TOP HIGH-FREQUENCY MERCHANT NODES (Spans 5 Columns) */}
+      
         <div className="lg:col-span-5 bg-[#09090b]/20 border border-white/5 rounded-2xl p-6 flex flex-col justify-between shadow-2xl min-h-[380px]">
           <div className="w-full">
             <span className="text-[10px] font-mono font-bold text-gray-500 uppercase tracking-widest block pb-3 border-b border-white/5 mb-4">Top Burner Vendor Nodes</span>
@@ -201,7 +201,7 @@ const ChartsPage = () => {
                           <span className="text-[9px] font-mono text-gray-600 uppercase block">{vendor.count} Transactions</span>
                         </div>
                       </div>
-                      {/* Micro Tracking Progress Bar Rail */}
+                   
                       <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}

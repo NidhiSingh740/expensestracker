@@ -58,12 +58,12 @@ const HowItWorks = () => {
   return (
     <section id="how-it-works" className="relative min-h-screen bg-[#050505] text-white py-32 px-6 overflow-hidden">
       
-      {/* Background Subtle Mesh Design */}
+     
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-purple-900/10 via-transparent to-pink-900/5 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative">
         
-        {/* Section Header */}
+       
         <div className="text-center mb-28">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
@@ -81,7 +81,6 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        {/* The Timeline Track Container */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -89,23 +88,23 @@ const HowItWorks = () => {
           viewport={{ once: true, margin: "-150px" }}
           className="relative"
         >
-          {/* Central Connecting Vertical Line */}
+          
           <div className="absolute left-4 md:left-1/2 top-12 bottom-12 w-[2px] bg-gradient-to-b from-purple-500 via-pink-500 to-indigo-500 opacity-20 hidden sm:block -translate-x-1/2" />
 
-          {/* Map Steps loop */}
+         
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
             return (
               <div key={step.number} className="relative flex flex-col md:flex-row items-start md:items-center justify-between mb-24 md:mb-32 group">
                 
-                {/* 1. Content Card Block Side */}
+               
                 <motion.div 
                   variants={textVariants(isEven ? 'left' : 'right')}
                   className={`w-full md:w-[45%] pl-12 md:pl-0 ${isEven ? 'md:text-right md:order-1' : 'md:order-3'}`}
                 >
                   <div className="relative rounded-3xl bg-[#09090b] border border-white/10 p-8 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:border-purple-500/30 group-hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]">
                     
-                    {/* Glowing corner overlay background */}
+                    
                     <div className={`absolute -right-20 -top-20 w-40 h-40 bg-gradient-to-br ${step.glowColor} to-transparent rounded-full blur-2xl transition-opacity opacity-40 group-hover:opacity-100`} />
                     
                     <span className="text-[10px] tracking-widest font-mono text-gray-500 font-bold uppercase mb-2 block">{step.badge}</span>
@@ -119,7 +118,7 @@ const HowItWorks = () => {
                   </div>
                 </motion.div>
 
-                {/* 2. Central Pulse Core Dot Point */}
+                
                 <motion.div 
                   variants={nodeVariants}
                   className="absolute left-4 md:left-1/2 top-8 md:top-auto md:order-2 -translate-x-1/2 z-10 hidden sm:block"
@@ -132,7 +131,7 @@ const HowItWorks = () => {
                   </div>
                 </motion.div>
 
-                {/* 3. Empty Balance Spacer Column */}
+                
                 <div className={`w-full md:w-[45%] hidden md:block ${isEven ? 'md:order-3' : 'md:order-1'}`} />
 
               </div>
@@ -140,7 +139,7 @@ const HowItWorks = () => {
           })}
         </motion.div>
 
-        {/* Completion Indicator Bottom Element */}
+        
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

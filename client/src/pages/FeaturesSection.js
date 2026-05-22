@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { BrainCircuit, BarChart3, Tag, Sparkles, MessageSquare, LineChart, ShieldCheck } from 'lucide-react';
 
 const FeaturesSection = () => {
-  // Animation configuration for scroll reveal
+  
   const cardVariants = {
     hidden: { y: 40, opacity: 0 },
     visible: { 
@@ -16,8 +16,7 @@ const FeaturesSection = () => {
 
   return (
     <section id="features" className="relative min-h-screen bg-[#050505] text-white py-24 px-6 overflow-hidden">
-      
-      {/* Background glow ambient layers */}
+    
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[300px] h-[300px] bg-pink-600/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -39,10 +38,10 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        {/* Bento Grid Layout */}
+        
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
           
-          {/* CARD 1: Natural Language Processing (Takes up 2 columns on medium screens up, height adjusted) */}
+         
           <motion.div
             variants={cardVariants}
             initial="hidden"
@@ -50,7 +49,7 @@ const FeaturesSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="md:col-span-2 group relative rounded-3xl bg-[#09090b] border border-white/10 p-8 flex flex-col justify-between overflow-hidden min-h-[480px]"
           >
-            {/* Hover Gradient Glow overlay */}
+            
             <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             
             <div>
@@ -63,14 +62,14 @@ const FeaturesSection = () => {
               </p>
             </div>
 
-            {/* Mock Visual Element Container */}
+            
             <div className="relative mt-8 flex flex-col items-center justify-center bg-black/40 border border-white/5 rounded-2xl p-6 h-56 overflow-hidden">
-              {/* Abstract Glassmorphism UI components */}
+             
               <div className="absolute top-4 left-4 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 text-xs text-gray-400 flex items-center gap-2 shadow-2xl">
                 <MessageSquare className="w-3.5 h-3.5 text-purple-400" /> "Spent ₹1500 on dining..."
               </div>
 
-              {/* Crystal / Geometrical wireframe simulation block via CSS gradients */}
+           
               <div className="w-28 h-28 rounded-full bg-gradient-to-tr from-purple-500/30 to-pink-500/30 blur-md animate-pulse absolute" />
               <div className="relative w-24 h-24 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm bg-white/5">
                 <BrainCircuit className="w-10 h-10 text-white/80" />
@@ -82,7 +81,7 @@ const FeaturesSection = () => {
             </div>
           </motion.div>
 
-          {/* CARD 2: Real-time Analytics (Takes up 3 columns) */}
+      
           <motion.div
             variants={cardVariants}
             initial="hidden"
@@ -102,14 +101,14 @@ const FeaturesSection = () => {
               </p>
             </div>
 
-            {/* Mock Dashboard Area Visual */}
+           
             <div className="mt-8 relative bg-black/40 border border-white/5 rounded-2xl p-6 h-56 flex flex-col justify-between overflow-hidden">
               <div className="flex items-center justify-between border-b border-white/5 pb-3">
                 <span className="text-xs text-gray-500 font-mono">WEEKLY SPENDING TREND</span>
                 <LineChart className="w-4 h-4 text-pink-400" />
               </div>
               
-              {/* Simulated Wave Vector Using Clean CSS Layout Masks */}
+             
               <div className="w-full h-24 flex items-end gap-2 px-2 relative">
                 <div className="absolute inset-x-0 bottom-4 h-[1px] bg-white/10" />
                 <div className="w-full h-12 bg-gradient-to-t from-purple-500/20 to-transparent rounded-t-md border-t-2 border-purple-500/60" />
@@ -124,7 +123,7 @@ const FeaturesSection = () => {
             </div>
           </motion.div>
 
-          {/* CARD 3: Auto-Categorization (Spans all 5 columns horizontally for full layout variation) */}
+          
           <motion.div
             variants={cardVariants}
             initial="hidden"
@@ -144,10 +143,10 @@ const FeaturesSection = () => {
               </p>
             </div>
 
-            {/* Micro Interactivity Sorting Node Display */}
+            
             <div className="relative bg-black/40 border border-white/5 rounded-2xl p-6 h-48 flex items-center justify-around overflow-hidden">
               
-              {/* Unstructured Incoming node */}
+           
               <div className="flex flex-col items-center gap-2 z-10">
                 <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-purple-400 group-hover:border-purple-500/40 transition-colors duration-500">
                   <Sparkles className="w-5 h-5" />
@@ -155,12 +154,12 @@ const FeaturesSection = () => {
                 <span className="text-[10px] font-mono text-gray-500">Raw Data</span>
               </div>
 
-              {/* Connecting animated vector simulations using flex bars */}
+             
               <div className="flex-1 max-w-[80px] h-[2px] bg-gradient-to-r from-purple-500 to-transparent relative overflow-hidden hidden sm:block">
                 <div className="absolute inset-0 w-1/2 bg-white/40 animate-shimmer" style={{animationDuration: '2s'}} />
               </div>
 
-              {/* Mapped Categories Grid Block */}
+              
               <div className="grid grid-cols-3 gap-3 z-10">
                 <div className="flex flex-col items-center p-2 rounded-lg bg-white/5 border border-white/10 text-center min-w-[70px]">
                   <span className="text-xs font-semibold text-purple-400">🍔 Food</span>

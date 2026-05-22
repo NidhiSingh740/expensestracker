@@ -8,7 +8,7 @@ const BudgetPage = () => {
   const [budgets, setBudgets] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   
-  // Modal Input Fields
+
   const [selectedCategory, setSelectedCategory] = useState('Food & Drinks');
   const [inputLimit, setInputLimit] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -82,7 +82,7 @@ const BudgetPage = () => {
   return (
     <div className="min-h-screen bg-[#020203] text-white p-4 lg:p-6 font-sans flex flex-col gap-6 select-none relative">
       
-      {/* ================= TITLED ACTION CONTROLS HEADER ================= */}
+
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
         <div>
           <h1 className="text-2xl font-black tracking-tight text-white">Budget Guardrails</h1>
@@ -97,7 +97,7 @@ const BudgetPage = () => {
         </button>
       </div>
 
-      {/* ================= HIGH SPECIFICATION RULE CARD TILES GRID ================= */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 w-full">
         {budgets.map((b) => {
           const ratioPercentage = Math.min((b.spent / b.limitAmount) * 100, 100);
@@ -113,7 +113,7 @@ const BudgetPage = () => {
                   : 'bg-[#08080a] border-white/5 hover:border-white/10'
               }`}
             >
-              {/* Background faint tracking context glow nodes */}
+              
               <div className={`absolute top-0 right-0 w-24 h-24 rounded-full blur-3xl pointer-events-none ${isOverflown ? 'bg-rose-500/5' : 'bg-white/[0.01]'}`} />
 
               <div className="w-full flex items-center justify-between">
@@ -146,7 +146,7 @@ const BudgetPage = () => {
                   </span>
                 </div>
 
-                {/* Progress Tracking Bar Rail */}
+             
                 <div className="w-full h-2 bg-black/50 border border-white/5 rounded-full overflow-hidden">
                   <motion.div 
                     initial={{ width: 0 }} 
@@ -161,7 +161,7 @@ const BudgetPage = () => {
         })}
       </div>
 
-      {/* ================= INTERACTIVE COMPONENT CONFIGURATION MODAL ================= */}
+    
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 z-[300] flex items-center justify-center p-4">
