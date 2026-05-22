@@ -24,6 +24,7 @@ app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/budgets', require('./routes/budgets'));
 app.use('/api/expenses', require('./routes/expenses'));
 app.use('/api/savings', require('./routes/savings'));
+app.use('/api/profile', require('./routes/profile'));
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

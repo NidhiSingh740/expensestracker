@@ -21,11 +21,9 @@ import Analytics from './components/Analytics';
 import Budget from './components/Budget';
 import Expenses from './components/Expenses';
 import SavingGoals from './components/SavingGoals';
+import Profile from './components/Profile';
 
 
-
-
-const ProfilePage = () => <div className="text-2xl font-bold text-white font-sans">User Account Settings & Configuration</div>;
 
 // Public Landing Page Layout Shell
 function LandingPage() {
@@ -77,7 +75,7 @@ function App() {
       <Route path="/expenses" element={<ProtectedLayout><Expenses /></ProtectedLayout>} />
       <Route path="/saving-goals" element={<ProtectedLayout><SavingGoals /></ProtectedLayout>} />
 
-      <Route path="/profile" element={<ProtectedLayout><ProfilePage /></ProtectedLayout>} />
+      <Route path="/profile" element={<ProtectedLayout><Profile /></ProtectedLayout>} />
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
