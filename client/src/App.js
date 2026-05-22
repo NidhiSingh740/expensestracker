@@ -48,14 +48,24 @@ const ProtectedLayout = ({ children }) => {
   if (!token) return <Navigate to="/login" replace />;
 
   return (
-    <div className="flex bg-[#050505] min-h-screen">
-
-      <SidebarNavbar />
+    <div className="flex bg-[#050505] min-h-screen relative w-full overflow-x-hidden">
+      {/* Permanent Fixed Sidebar Navigation Menu */}
+      <div className="fixed top-0 left-0 h-full z-50">
+        <SidebarNavbar />
+      </div>
       
-      
-      <main className="flex-grow p-8 pl-[100px] md:pl-[280px] transition-all duration-300 overflow-y-auto">
-        {children}
-      </main>
+      {/* Structural Column Layout - Uses explicit margins to leave exact space for the sidebar */}
+      <div className="flex flex-col min-h-screen w-full pl-[90px] md:pl-[260px] transition-all duration-300">
+        {/* Main Workspace expands beautifully to absorb remaining empty spatial gaps */}
+        <main className="flex-grow p-4 md:p-6 lg:p-8 overflow-y-auto">
+          {children}
+        </main>
+        
+        {/* Protected view footer locked flat against the bottom grid */}
+        <div className="border-t border-white/5 w-full bg-transparent">
+          <Footer />
+        </div>
+      </div>
     </div>
   );
 };
