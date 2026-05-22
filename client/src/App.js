@@ -17,9 +17,9 @@ import Login from "./pages/Login";
 import SidebarNavbar from './components/SidebarNavbar';
 import Dashboard from './components/Dashboard';
 import Charts from './components/Charts';
+import Analytics from './components/Analytics';
 
 
-const AnalyticsPage = () => <div className="text-2xl font-bold text-white font-sans">Deep Financial Analytics Engine</div>;
 const BudgetPage = () => <div className="text-2xl font-bold text-white font-sans">Bento Budget Allocation System</div>;
 const ExpensesPage = () => <div className="text-2xl font-bold text-white font-sans">Gemini AI Cognitive Insights</div>;
 const SavingGoalsPage = () => <div className="text-2xl font-bold text-white font-sans">Gemini AI Cognitive Insights</div>;
@@ -71,7 +71,7 @@ function App() {
 
       <Route path="/dashboard" element={<ProtectedLayout><Dashboard /></ProtectedLayout>} />
       <Route path="/charts" element={<ProtectedLayout><Charts /></ProtectedLayout>} />
-      <Route path="/analytics" element={<ProtectedLayout><AnalyticsPage /></ProtectedLayout>} />
+      <Route path="/analytics" element={<ProtectedLayout><Analytics /></ProtectedLayout>} />
       <Route path="/budget" element={<ProtectedLayout><BudgetPage /></ProtectedLayout>} />
       <Route path="/expenses" element={<ProtectedLayout><ExpensesPage /></ProtectedLayout>} />
       <Route path="/saving-goals" element={<ProtectedLayout><SavingGoalsPage /></ProtectedLayout>} />

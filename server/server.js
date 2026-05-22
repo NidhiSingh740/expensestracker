@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGO_URI)
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/dashboard', require('./routes/dashboard'));
 app.use('/api/charts', require('./routes/charts'));
+app.use('/api/analytics', require('./routes/analytics'));
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
