@@ -19,10 +19,11 @@ import Dashboard from './components/Dashboard';
 import Charts from './components/Charts';
 import Analytics from './components/Analytics';
 import Budget from './components/Budget';
+import Expenses from './components/Expenses';
+import SavingGoals from './components/SavingGoals';
 
 
-const ExpensesPage = () => <div className="text-2xl font-bold text-white font-sans">Gemini AI Cognitive Insights</div>;
-const SavingGoalsPage = () => <div className="text-2xl font-bold text-white font-sans">Gemini AI Cognitive Insights</div>;
+
 
 const ProfilePage = () => <div className="text-2xl font-bold text-white font-sans">User Account Settings & Configuration</div>;
 
@@ -73,8 +74,8 @@ function App() {
       <Route path="/charts" element={<ProtectedLayout><Charts /></ProtectedLayout>} />
       <Route path="/analytics" element={<ProtectedLayout><Analytics /></ProtectedLayout>} />
       <Route path="/budget" element={<ProtectedLayout><Budget/></ProtectedLayout>} />
-      <Route path="/expenses" element={<ProtectedLayout><ExpensesPage /></ProtectedLayout>} />
-      <Route path="/saving-goals" element={<ProtectedLayout><SavingGoalsPage /></ProtectedLayout>} />
+      <Route path="/expenses" element={<ProtectedLayout><Expenses /></ProtectedLayout>} />
+      <Route path="/saving-goals" element={<ProtectedLayout><SavingGoals /></ProtectedLayout>} />
 
       <Route path="/profile" element={<ProtectedLayout><ProfilePage /></ProtectedLayout>} />
 
