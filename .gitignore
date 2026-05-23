@@ -10,14 +10,8 @@
 # testing
 /coverage
 
-# Ignore production build bundles
-client/build/
-client/dist/
-
-
-# Ignore package dependencies inside both subfolders
-client/node_modules/
-server/node_modules/
+# production
+/build
 
 .env
 .env.*
