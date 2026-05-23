@@ -40,6 +40,13 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
+
+
+app.get('/', (req, res) => {
+  res.status(200).json({ status: "active", message: "FinTech AI Core Backend Engine fully online." });
+});
+
+
 app.listen(PORT, () => {
   console.log(`📡 Authentication engine active on port ${PORT}`);
 });
