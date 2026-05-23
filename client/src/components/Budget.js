@@ -15,7 +15,7 @@ const BudgetPage = () => {
 
   const fetchBudgetSystemData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/budgets/status', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/budgets/status', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       const data = await response.json();
@@ -39,7 +39,7 @@ const BudgetPage = () => {
     setSubmitting(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/budgets/upsert', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/budgets/upsert', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

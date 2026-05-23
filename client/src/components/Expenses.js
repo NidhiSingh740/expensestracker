@@ -24,7 +24,7 @@ const ExpensesPage = () => {
       const safeType = encodeURIComponent(type);
       const safeSortBy = encodeURIComponent(sortBy);
 
-      const url = `http://localhost:5000/api/expenses/ledger?page=${currentPage}&limit=8&category=${safeCategory}&type=${safeType}&sortBy=${safeSortBy}`;
+      const url = `https://expensestracker-qqri.onrender.com/api/expenses/ledger?page=${currentPage}&limit=8&category=${safeCategory}&type=${safeType}&sortBy=${safeSortBy}`;
       
       const response = await fetch(url, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -51,7 +51,7 @@ const ExpensesPage = () => {
     setEvictingId(id);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/expenses/evict/${id}`, {
+      const response = await fetch(`https://expensestracker-qqri.onrender.com/api/expenses/evict/${id}`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });

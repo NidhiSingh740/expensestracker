@@ -13,7 +13,7 @@ const AnalyticsPage = () => {
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/analytics/dashboard', {
+        const response = await fetch('https://expensestracker-qqri.onrender.com/api/analytics/dashboard', {
           headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         });
         const data = await response.json();

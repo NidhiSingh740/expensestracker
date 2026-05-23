@@ -18,7 +18,7 @@ const SavingGoalsPage = () => {
 
   const fetchSavingsData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/savings/list', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/savings/list', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       const data = await response.json();
@@ -41,7 +41,7 @@ const SavingGoalsPage = () => {
     const cleanDateString = dateInput.replace(/\s+/g, '');
 
     try {
-      const response = await fetch('http://localhost:5000/api/savings/create', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/savings/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const SavingGoalsPage = () => {
     setSubmitting(true);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/savings/allocate/${selectedGoal._id}`, {
+      const response = await fetch(`https://expensestracker-qqri.onrender.com/api/savings/allocate/${selectedGoal._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const SavingGoalsPage = () => {
   const handleDissolveGoal = async (id) => {
     if (!window.confirm("Dissolve this savings track? All locked cash tokens will instantly be returned to your main fluid wallet statement.")) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/savings/dissolve/${id}`, {
+      const response = await fetch(`https://expensestracker-qqri.onrender.com/api/savings/dissolve/${id}`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });

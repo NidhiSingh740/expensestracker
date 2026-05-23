@@ -50,7 +50,7 @@ const Dashboard = () => {
 
   const fetchDashboardSummary = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/dashboard/summary', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/dashboard/summary', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       const data = await response.json();
@@ -94,7 +94,7 @@ const Dashboard = () => {
   const handleManualSettingsUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/dashboard/update-balance', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/dashboard/update-balance', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ const Dashboard = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/dashboard/process-input', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/dashboard/process-input', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

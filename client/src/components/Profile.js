@@ -17,7 +17,7 @@ const ProfilePage = () => {
 
   const fetchProfileSystemData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/profile/meta', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/profile/meta', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
       const data = await response.json();
@@ -41,7 +41,7 @@ const ProfilePage = () => {
     e.preventDefault();
     setUpdating(true);
     try {
-      const response = await fetch('http://localhost:5000/api/profile/update', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/profile/update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const ProfilePage = () => {
     if (!window.confirm("CRITICAL WARNING: This action permanently wipes your entire transaction ledger history, active goals, and budget limits from MongoDB. Your balance will reset to zero. This cannot be undone. Proceed?")) return;
     setPurging(true);
     try {
-      const response = await fetch('http://localhost:5000/api/profile/purge', {
+      const response = await fetch('https://expensestracker-qqri.onrender.com/api/profile/purge', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
