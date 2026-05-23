@@ -11,12 +11,11 @@ const app = express();
 
 app.use(cors({
   origin: [
-    "http://localhost:3000", 
-    /\.vercel\.app$/ 
+    "http://localhost:3000",
+    "https://expensetracker-chi-six.vercel.app" // <-- Your exact primary live link from Vercel
   ],
   credentials: true
 }));
-
 
 
 app.use(express.json()); 
