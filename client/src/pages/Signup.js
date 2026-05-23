@@ -12,17 +12,28 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // DYNAMIC PRODUCTION NETWORK BRIDGE CONFIGURATION
-    const BASE_URL = process.env.REACT_APP_API_URL || "https://expensetracker-qqri.onrender.com";
+    // 1. Force gather values directly from the DOM fields to guarantee they exist
+    const nameInput = e.target.elements.name?.value || formData.name;
+    const emailInput = e.target.elements.email?.value || formData.email;
+    const passwordInput = e.target.elements.password?.value || formData.password;
+
+    if (!nameInput || !emailInput || !passwordInput) {
+      alert("Please fill out all signup fields cleanly.");
+      return;
+    }
+
+    const payload = { name: nameInput, email: emailInput, password: passwordInput };
+    const BASE_URL = "https://expensetracker-qqri.onrender.com";
 
     try {
+      // 2. Fire the network stream using our explicit cloud link
       const response = await fetch(`${BASE_URL}/api/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(payload) // Safe sanitized payload mapping
       });
       
       const data = await response.json();
@@ -34,11 +45,10 @@ const Signup = () => {
         alert(data.message); 
       }
     } catch (error) {
-      console.error("Connection Error:", error);
+      console.error("Actual Hidden Signup Crash:", error);
       alert("Could not connect to the authentication server engine.");
     }
   };
-
   return (
     <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 relative overflow-hidden">
       <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />

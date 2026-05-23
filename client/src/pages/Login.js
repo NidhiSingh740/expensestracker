@@ -11,18 +11,27 @@ const Login = () => {
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // DYNAMIC PRODUCTION NETWORK BRIDGE CONFIGURATION
-    const BASE_URL = process.env.REACT_APP_API_URL || "https://expensetracker-qqri.onrender.com";
+    // 1. Force gather values directly from the DOM fields to guarantee they exist
+    const emailInput = e.target.elements.email?.value || formData.email;
+    const passwordInput = e.target.elements.password?.value || formData.password;
+
+    if (!emailInput || !passwordInput) {
+      alert("Please fill out all input credentials cleanly.");
+      return;
+    }
+
+    const payload = { email: emailInput, password: passwordInput };
+    const BASE_URL = "https://expensetracker-qqri.onrender.com";
 
     try {
+      // 2. Fire the connection stream using our hardcoded fallback link
       const response = await fetch(`${BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(payload) // Safe payload map
       });
       
       const data = await response.json();
@@ -35,7 +44,7 @@ const Login = () => {
         alert(data.message); 
       }
     } catch (error) {
-      console.error("Connection Error:", error);
+      console.error("Actual Hidden Engine Crash:", error);
       alert("Could not connect to the authentication server engine.");
     }
   };
