@@ -9,8 +9,17 @@ dotenv.config();
 const app = express();
 
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true })); // Allows your React app to connect
-app.use(express.json()); // Parses incoming json requests
+app.use(cors({
+  origin: [
+    "http://localhost:3000", 
+    /\.vercel\.app$/ 
+  ],
+  credentials: true
+}));
+
+
+
+app.use(express.json()); 
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('🚀 Connected to MongoDB Atlas Cloud Database successfully.'))
